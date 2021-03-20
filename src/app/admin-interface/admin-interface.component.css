@@ -1,0 +1,123 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+#content {
+  margin-left: 235px;
+}
+
+.col-left {
+  position: absolute;
+  left: 0;
+  width: 235px;
+  min-height: 100%;
+  background-color: #322e2b;
+}
+.col-left #nav-left {
+  background-color: #44403b;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.col-left #nav-left .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  opacity: 0;
+}
+.col-left #nav-left .toggler:checked + #navigation > div {
+  transform: rotate(135deg);
+}
+.col-left #nav-left .toggler:checked + #navigation > div:before, .col-left #nav-left .toggler:checked + #navigation > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+.col-left #nav-left #navigation {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.col-left #nav-left #navigation > div {
+  position: absolute;
+  background-color: white;
+  height: 2px;
+  width: 100%;
+  transition: all 0.4s;
+}
+.col-left #nav-left #navigation > div::before, .col-left #nav-left #navigation > div::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 2px;
+  top: -10px;
+  width: 100%;
+}
+.col-left #nav-left #navigation > div:after {
+  top: 10px;
+}
+.col-left #nav-left .menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.col-left #nav-left ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.col-left #nav-left ul li:hover {
+  background-color: #49423f;
+}
+.col-left #nav-left ul li a {
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #acb2d4;
+  border-bottom: 1px solid #515151;
+}
+.col-left #nav-left ul li a.parent::after {
+  content: "";
+  font: normal normal normal 14px/2 FontAwesome;
+  float: right;
+  margin-right: 8px;
+}
+.col-left #nav-left ul li a.collapsed::after {
+  content: "";
+}
+.col-left #nav-left li ul#sub-menu1 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.col-left #nav-left li ul#sub-menu1 li {
+  line-height: 10px;
+}
+.col-left #nav-left li ul#sub-menu1 li:hover {
+  background-color: #48423f;
+}
+.col-left #nav-left li ul#sub-menu1 li a {
+  display: block;
+  transition: all 0.5s;
+}
+.col-left #nav-left li ul li a:hover {
+  transform: translateX(10px);
+  background-color: #322e2b;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=admin-interface.component.css.map */

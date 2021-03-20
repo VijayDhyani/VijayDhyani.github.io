@@ -1,0 +1,26 @@
+.content {
+  background: url("/assets/images/chang-duong-Sj0iMtq_Z4w-unsplash.jpg") no-repeat center center/cover;
+  height: 700px;
+  margin: auto;
+}
+
+#container {
+  max-width: 1100px;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container h1 {
+  font-size: 4rem;
+}
+
+.footer-content {
+  padding: 15px;
+  color: white;
+  text-align: center;
+  background-color: #000000;
+}
+
+/*# sourceMappingURL=home.component.css.map */

@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+<div class="row justify-content-center align-items-center bg-light py-4 px-2">
+  <div class="col-md-4">
+    <form (ngSubmit)="onSubmit(formElement.value)" #formElement = ngForm>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text"
+            class="form-control"
+            name="firstname"
+            id="firstname"
+            #firstName
+            placeholder="Enter First Name"
+            required
+            ngModel>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text"
+            class="form-control"
+            id="lastname"
+            name="lastname"
+            #lastName
+            placeholder="Enter Last Name"
+            required
+            ngModel>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date"
+         class="form-control"
+         id="dob"
+         name="dob"
+         #dob
+         required
+         ngModel>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        #Email
+        placeholder="Enter Email"
+        required
+        [(ngModel)]="email"
+        (change)="validateEmail()">
+        <small class="text-muted" *ngIf="!validateEmail()">Please enter a valid email</small>
+      </div>
+      <div class="form-group">
+        <label for="password">Enter Password</label>
+        <input type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="Enter Password"
+        required
+        [(ngModel)]="password"
+        (ngModelChange)="validatePassword()">
+        <small class="text-muted">
+          <p id= "p1"> Password must be at least six characters long.</p>
+          <p id= "p2">Must contain at least one uppercase Letter.</p>
+          <p id= "p3">Must contain at least one number</p>
+          <p id= "p4">Must contain at least one special character.</p>
+          <p id= "p5">Must not contain any space.</p>
+          </small>
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirm Password</label>
+        <input type="password"
+        class="form-control"
+        id="password2"
+        name="password2"
+        #password2
+        placeholder="Confirm Password"
+        ngModel>
+        <small *ngIf="checkPasswords()" class="text-muted">passwords don't match</small>
+      </div>
+      <div class="form-group">
+        <button type = "submit"
+        class="btn btn-primary btn-block"
+        [disabled] = "!formElement.valid">Register</button>
+      </div>
+    </form>
+  </div>
+</div>

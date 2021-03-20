@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div class="row justify-content-center align-items-center">
+  <div class="col-4">
+  <form>
+    <div class="form-group">
+      <label for="email"></label>
+      <input type="text"
+       id="email"
+       #email
+       class="form-control"
+       placeholder="Email address">
+    </div>
+    <div class="form-group">
+      <label for="password"></label>
+      <input type="password"
+      id="password"
+      #password
+      class="form-control"
+      placeholder="Enter Password">
+    </div>
+    <button class="btn btn-primary btn-block" (click)="login()">Login</button>
+    <div class="text-center">
+    <small><a href="#">Forgotten account?</a></small>
+    </div>
+    <hr>
+    <div class="text-center">
+    <button class="btn btn-success" (click)="toRegistration()">Create new Account</button>
+    </div>
+  </form>
+  </div>
+</div>

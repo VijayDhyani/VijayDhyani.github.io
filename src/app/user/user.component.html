@@ -1,0 +1,85 @@
+<div class="container justify-content-between">
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header text-center">
+          <i class="fa fa-users fa-2x"></i>
+          <span class="highlight ">Users</span>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>joined</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of users |
+            paginate: {id: 'listing_pagination',
+            itemsPerPage: 12, currentPage: page, totalItems: totalRecords}">
+              <td>{{user.userId}}</td>
+              <td><a [routerLink]="['/admin','users', user.name.first, user.userId]">{{user.name.first}}</a></td>
+              <td>{{user.gender}}</td>
+              <td>{{user.dob.age}}</td>
+              <td>{{user.registered.date | date}}</td>
+              <td>
+                <i *ngIf="user.status ==='online'" class="fa fa-dot-circle-o text-success"></i>
+                <i *ngIf="user.status === 'offline'" class="fa fa-dot-circle-o text-danger"></i>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div>
+            <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event">
+
+            </pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="user-filter">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-filter fa-2x"></i>
+            <span class="highlight">Filter</span>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="UserId">User Id</label>
+              <input type="text"
+                     id="UserId"
+                     class="form-control"
+                     placeholder="Id"
+                     [(ngModel)]="userId">
+            </div>
+            <div class="form-group">
+              <label for="UserName">User Name</label>
+              <input type="text"
+                     id="UserName"
+                     class="form-control"
+                     placeholder="User Name"
+                     [(ngModel)]="userName" >
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text"
+                     id="email"
+                     class="form-control"
+                     placeholder="Email Id"
+                     [(ngModel)]="userEmail">
+            </div>
+            <button class="btn btn-outline-primary" (click)="filterUsers()">
+              <i class="fa fa-filter"></i> Filter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
